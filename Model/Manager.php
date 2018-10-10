@@ -1,12 +1,12 @@
 <?php
 
 /**
- * Classe abstraite Model.
+ * Classe abstraite Manager.
  * Centralise les services d'accès à une base de données.
  * Utilise l'API PDO
  *
  */
-abstract class Model {
+abstract class Manager {
 
     /** Objet PDO d'accès à la BDD */
     private $db;
