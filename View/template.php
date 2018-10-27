@@ -10,7 +10,7 @@
     <div>
 
         <header class="container-fluid">
-            <a href=<?= "index.php?action=homepage"?>>
+            <a href=<?= "index.php"?>>
 				<img id="logo" class="col-xs-2 col-lg-1" src="images/logo512px.png">
 			</a>
             <div class="col-xs-offset-8 text-right"><?= $menuLinks ?></div>

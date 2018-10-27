@@ -19,7 +19,7 @@ class Controller
 				{
 					$this->homepageCtrl->homepage();
 				}
-				if($_GET['action'] == 'inscription');
+				if($_GET['action'] == 'registration');
 				{
 					$this->homepageCtrl->Inscription();
 				}
