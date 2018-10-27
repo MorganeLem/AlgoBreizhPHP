@@ -10,7 +10,9 @@
     <div>
 
         <header class="container-fluid">
-            <img id="logo" class="col-xs-2 col-lg-1" src="images/logo512px.png">
+            <a href=<?= "index.php?action=homepage"?>>
+				<img id="logo" class="col-xs-2 col-lg-1" src="images/logo512px.png">
+			</a>
             <div class="col-xs-offset-8 text-right"><?= $menuLinks ?></div>
         </header>
         <div class="container" id="contenu">
