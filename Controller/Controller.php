@@ -1,7 +1,7 @@
 <?php
 
 require_once 'HomepageController.php';
-require_once 'View/View.php';
+// 'View/View.php';
 
 class Controller
 {
@@ -13,6 +13,20 @@ class Controller
     }
     public function root()
     {
-        $this->homepageCtrl->homepage();
+			if(isset($_GET['action']))
+			{
+				if($_GET['action'] == 'homepage')
+				{
+					$this->homepageCtrl->homepage();
+				}
+				if($_GET['action'] == 'inscription');
+				{
+					$this->homepageCtrl->Inscription();
+				}
+			}else
+			{
+				$this->homepageCtrl->homepage();
+			}
+		
     }
 }
