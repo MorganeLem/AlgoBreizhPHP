@@ -3,7 +3,7 @@
 require_once 'HomepageController.php';
 // 'View/View.php';
 
-class Controller
+class Router
 {
     private $homepageCtrl;
 
