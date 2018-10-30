@@ -11,7 +11,7 @@ class Router
     {
         $this->homepageCtrl = new HomepageController();
     }
-    public function root()
+    public function routing()
     {
 			if(isset($_GET['action']))
 			{

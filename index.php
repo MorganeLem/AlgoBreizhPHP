@@ -2,6 +2,6 @@
 
 require_once 'Controller/Router.php';
 
-$root = new Router();
-$root->root();
+$rout = new Router();
+$rout->routing();
 
