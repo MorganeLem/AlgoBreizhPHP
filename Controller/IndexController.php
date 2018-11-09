@@ -1,7 +1,7 @@
 <?php
 require_once 'View/View.php';
 
-class HomepageController
+class IndexController
 {
 
     public function __construct()

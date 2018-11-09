@@ -19,7 +19,7 @@
             <?= $contenu ?>
         </div>
         <footer class="text-center">
-            Projet AlgoBreizh 2018
+            Projet AlgoBreizh 2019
         </footer>
 
     </div>

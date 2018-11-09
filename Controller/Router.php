@@ -1,6 +1,6 @@
 <?php
 
-require_once 'HomepageController.php';
+require_once 'IndexController.php';
 // 'View/View.php';
 
 class Router
@@ -9,7 +9,7 @@ class Router
 
     public function __construct()
     {
-        $this->homepageCtrl = new HomepageController();
+        $this->homepageCtrl = new IndexController();
     }
     public function routing()
     {
