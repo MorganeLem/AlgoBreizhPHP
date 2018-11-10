@@ -2,25 +2,31 @@ body{
     background-color: #e6ffd2;
 }
 header{
-    height: 100%;
     background-color: #1e320a;
     padding: 20px;
     margin-bottom: 30px;
+    line-height: 50px;
 }
 
 header nav, header nav a{
     color: #e6ffd2;
 }
 
-header div{
-    line-height: 50px;
-}
-
-img{
+#logo{
+    float: left;
     height: 100%;
+
 }
 
 .jumbotron{
     background-color: #326419;
     color: #e6ffd2;
+}
+
+#div-btn-connection{
+    margin-top: 40px;
+}
+
+legend, #div-btn-connection a{
+    color: #1e320a;
 }

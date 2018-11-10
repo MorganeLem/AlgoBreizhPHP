@@ -2,7 +2,7 @@
 
 $this->title = 'Accueil';
 $this->menuLinks = '<nav><a href="index.php?action=registration"> S\'inscrire </a> |' ;
-$this->menuLinks .= '<a href="#"> Se connecter </a></nav>';
+$this->menuLinks .= '<a href="index.php?action=connection"> Se connecter </a></nav>';
 
 
 

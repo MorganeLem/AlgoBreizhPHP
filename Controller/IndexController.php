@@ -15,10 +15,16 @@ class IndexController
         $vue->generer(array());
     }
 	
-	public function Inscription()
+	public function registration()
 	{
-		$vue = new Vue("RegistrationView");
+		$vue = new Vue("registrationView");
 		$vue->generer(array());
 	}
+
+	public function Connection()
+    {
+        $vue = new Vue("connectionView");
+        $vue->generer(array());
+    }
 		
 }

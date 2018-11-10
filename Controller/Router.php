@@ -5,27 +5,31 @@ require_once 'IndexController.php';
 
 class Router
 {
-    private $homepageCtrl;
+    private $indexCtrl;
 
     public function __construct()
     {
-        $this->homepageCtrl = new IndexController();
+        $this->indexCtrl = new IndexController();
     }
     public function routing()
     {
 			if(isset($_GET['action']))
 			{
-				if($_GET['action'] == 'homepage')
-				{
-					$this->homepageCtrl->homepage();
-				}
-				if($_GET['action'] == 'registration');
-				{
-					$this->homepageCtrl->Inscription();
-				}
+                if ($_GET['action'] === 'homepage') {
+                    $this->indexCtrl->homepage();
+                }
+                elseif ($_GET['action'] === 'registration')
+                {
+                    $this->indexCtrl->registration();
+                }
+                elseif($_GET['action'] === 'connection')
+                {
+                    $this->indexCtrl->connection();
+                }
+
 			}else
 			{
-				$this->homepageCtrl->homepage();
+				$this->indexCtrl->homepage();
 			}
 		
     }
