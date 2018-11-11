@@ -1,12 +1,16 @@
 <?php
-
 $this->title = 'Accueil';
-$this->menuLinks = '<nav><a href="index.php?action=registration"> S\'inscrire </a> |' ;
-$this->menuLinks .= '<a href="index.php?action=connection"> Se connecter </a></nav>';
+$this->menuLinks = '<a href="index.php?action=registration"> S\'inscrire </a> | ' ;
+$this->menuLinks .= '<a href="index.php?action=connection"> Se connecter </a>';
+
+
+
 
 
 
 ?>
+
+<?php include 'MessageFlash.php'; ?>
 
 <div class="jumbotron">
     <p>Bienvenue sur le site d'AlgoBreizh !</p>
@@ -16,4 +20,6 @@ $this->menuLinks .= '<a href="index.php?action=connection"> Se connecter </a></n
     <p>Depuis plus de 15 ans, toute l'équipe d'AlgoBreizh développe et fabrique une gamme originale de produits alimentaires à base d'algues pour le bonheur des chefs et des particuliers amateurs de nouvelles saveurs.</p>
 
 </div>
+
+
 

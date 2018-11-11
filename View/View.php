@@ -9,6 +9,7 @@ class Vue {
     private $title;
 
     public function __construct($action) {
+
         // Détermination du nom du fichier vue à partir de l'action
         $this->fichier = "View/" . $action . ".php";
     }
@@ -18,8 +19,36 @@ class Vue {
         // Génération de la partie spécifique de la vue
         $contenu = $this->genererFichier($this->fichier, $donnees);
         // Génération du gabarit commun utilisant la partie spécifique
+        if(session_status()== PHP_SESSION_NONE){
+            session_start();
+        }
+        if(isset($_SESSION['user'])) {
+            ob_start(); ?>
+            <div class="btn-group">
+
+                <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                    Bonjour <?= $_SESSION['user']->firstname ?> <span class="caret"></span></button>
+
+                <ul class="dropdown-menu dropdown-menu-right">
+
+                    <li><a href="#"><span class="glyphicon glyphicon-file"></span> Mes Commandes</a></li>
+
+                    <li><a href="#"><span class="glyphicon glyphicon-file"></span> Mes Factures</a></li>
+
+                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mon Compte</a></li>
+
+                    <li class="divider"></li>
+
+                    <li><a href="index.php?action=logout"><span class="glyphicon glyphicon-remove"></span> Déconnection</a></li>
+
+                </ul>
+
+            </div>
+            <?php $this->menuLinks = ob_get_clean();
+        }
         $vue = $this->genererFichier('View/template.php',
                 array('title' => $this->title, 'menuLinks' => $this->menuLinks, 'contenu' => $contenu));
+
         // Renvoi de la vue au navigateur
         echo $vue;
     }

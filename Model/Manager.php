@@ -6,7 +6,7 @@
  * Utilise l'API PDO
  *
  */
-abstract class Manager {
+class Manager {
 
     /** Objet PDO d'accès à la BDD */
     private $db;

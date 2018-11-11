@@ -8,7 +8,7 @@ header{
     line-height: 50px;
 }
 
-header nav, header nav a{
+header, header a{
     color: #e6ffd2;
 }
 
@@ -29,4 +29,10 @@ header nav, header nav a{
 
 legend, #div-btn-connection a{
     color: #1e320a;
+}
+
+#flashConnection{
+    margin-bottom: 20px;
+    padding-right: 10px;
+    font-weight: 800;
 }

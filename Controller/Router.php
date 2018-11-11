@@ -10,7 +10,9 @@ class Router
     public function __construct()
     {
         $this->indexCtrl = new IndexController();
+
     }
+
     public function routing()
     {
 			if(isset($_GET['action']))
@@ -25,6 +27,9 @@ class Router
                 elseif($_GET['action'] === 'connection')
                 {
                     $this->indexCtrl->connection();
+                }
+                elseif ($_GET['action'] === 'logout'){
+                    $this->indexCtrl->logout();
                 }
 
 			}else

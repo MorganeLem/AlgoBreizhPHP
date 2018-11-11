@@ -1,11 +1,14 @@
 <?php
 require_once 'View/View.php';
+require_once 'Model/ConnectionManager.php';
 
 class IndexController
 {
+    private $customer;
 
     public function __construct()
     {
+        $this->customer = new ConnectionManager();
 
     }
 
@@ -21,10 +24,48 @@ class IndexController
 		$vue->generer(array());
 	}
 
-	public function Connection()
+	public function connection()
     {
+        if(session_status()== PHP_SESSION_NONE){
+            session_start();
+        }
+
         $vue = new Vue("connectionView");
-        $vue->generer(array());
+
+        if(!empty($_POST)){
+
+            if(!empty($_POST['login']) && !empty($_POST['pswd']))
+            {
+
+                $user = $this->customer->getCustomer();
+                if($user->password === $_POST['pswd'])
+                {
+                    $_SESSION['user'] = $user;
+                    $_SESSION['flash']['success'] = 'Vous êtes maintenant connecté. ';
+                    $this->homepage();
+                }else
+                    {
+                        $_SESSION['flash']['danger'] = 'Identifiant ou mot de passe incorrect ! ';
+                        $vue->generer(array());
+
+                }
+
+            }else
+                {
+                $_SESSION["flash"]["danger"] = "Vous devez renseigner tous les champs ! ";
+                    $vue->generer(array());
+            }
+        }else{
+
+            $vue->generer(array());
+        }
+
     }
-		
+
+    public function logout(){
+        session_start();
+        session_destroy();
+        $_SESSION['flash']['danger'] = 'Vous êtes déconnecté.';
+        $this->homepage();
+    }
 }

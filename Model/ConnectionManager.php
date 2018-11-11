@@ -1,13 +1,16 @@
 <?php
 
+require_once 'Manager.php';
+
 class ConnectionManager extends Manager{
 
-    public function getCustomersLog($code)
+    public function getCustomer()
     {
-        $sql = 'SELECT email, password
+        $sql = 'SELECT *
                 FROM customers
-                WHERE code = ?';
-        $codeCustomExist = $this->queryExecute($sql, array($code));
-        return $codeCustomExist;
+                WHERE email = ? or customer_code = ?';
+        $request = $this->queryExecute($sql, array($_POST['login'], $_POST['login']));
+        $user = $request->fetchObject();
+        return $user;
     }
 }
