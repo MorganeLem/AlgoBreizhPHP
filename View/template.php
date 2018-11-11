@@ -16,6 +16,7 @@
             <div class="col-xs-offset-8 text-right"><?= $menuLinks ?></div>
         </header>
         <div class="container" id="contenu">
+		
             <?= $contenu ?>
         </div>
         <footer class="text-center">

@@ -1,11 +1,7 @@
 <?php
-
 $this->title = 'Accueil';
-$this->menuLinks = '<a href="#"> S\'inscrire </a>' ;
-$this->menuLinks .= '<a href="#"> Se connecter </a>';
-
-
-
+$this->menuLinks = '<a href="index.php?action=Inscription"> S\'inscrire </a>' ;
+$this->menuLinks .= '<a href="index.php?action=Connexion"> Se connecter </a>';
 ?>
 
 <div class="jumbotron">
