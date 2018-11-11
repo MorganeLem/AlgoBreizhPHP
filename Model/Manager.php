@@ -42,7 +42,7 @@ abstract class Manager {
         if ($this->db == null)
         {
             // Création de la connexion
-            $this->db = new PDO('mysql:host=localhost;dbname=algobreizh;charset=utf8',
+            $this->db = new PDO('mysql:host=localhost;dbname=algobreizh_php;charset=utf8',
                 'root', '',
                 array(PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION));
         }

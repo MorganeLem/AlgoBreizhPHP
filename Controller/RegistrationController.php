@@ -20,19 +20,21 @@ class RegistrationController extends Manager
 	public function InscriptionV($CodeClient, $Nom, $Prenom, $Email)
 	{
 		
-		if( isset($Nom) & isset($Prenom) & isset($Email) & isset($CodeClient))
+		if( !empty($_POST['Nom']) && !empty($_POST['Prenom']) && !empty($_POST['email']) && !empty($CodeClient))
 		{
-			$this->getdb();
-			$verifCodeClient = $this->queryExecute('SELECT CodeClient FROM client WHERE CodeClient = "'.$CodeClient.'"');
+			$verifCodeClient = $this->queryExecute('SELECT customer_code FROM customers WHERE customer_code = ?', array($CodeClient));
 			$verifCodeClient = $verifCodeClient->fetch();
-			echo $verifCodeClient;
-			echo $verifCodeClient;
-			while ($CodeClient = $verifCodeClient->fetch())
-			{
-				$sql = 'UPDATE client SET CodeClient = ? ';
-				$this->queryExecute($verifCodeClient , $CodeClient);
-				echo 'vous êtes inscrit avec succès';
-			}
-		}
+            if(!empty($verifCodeClient)){
+                $sql = 'UPDATE customers SET firstname = ?, lastname = ?, email = ? WHERE customer_code = ?';
+                $this->queryExecute($sql, array($_POST['Prenom'], $_POST['Nom'], $_POST['email'], $CodeClient));
+                echo 'vous êtes inscrit avec succès';
+            }
+
+
+
+        }
 	}
 }
+
+var_dump($CodeClient);
+var_dump($_POST);

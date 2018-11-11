@@ -1,9 +1,13 @@
 <?php
 // déclaration des variables 
-$CodeClient = isset($_POST['CodeClient']) ? $_POST['CodeClient'] : NULL;
+/*$CodeClient = isset($_POST['CodeClient']) ? $_POST['CodeClient'] : NULL;
 $Nom = !empty($_POST['Nom']) ? $_POST['Nom'] : NULL;
 $Prenom = !empty($_POST['Prenom']) ? $_POST['Prenom'] : NULL;
-$email = !empty($_POST['email']) ? $_POST['email'] : NULL;
+$email = !empty($_POST['email']) ? $_POST['email'] : NULL;*/
+
+if (!empty($_POST['CodeClient'])){
+    $CodeClient = $_POST['CodeClient'];
+}
 
 
 // menu 
@@ -29,5 +33,5 @@ $this->menuLinks .= '<a href="index.php?action=Connexion"> Se connecter </a>';
 </div>
 <?php
 	$this->registrationCtrl 	= new RegistrationController();
-	$this->registrationCtrl->InscriptionV($CodeClient, $Nom, $Prenom, $email);	
+	$this->registrationCtrl->InscriptionV($CodeClient, $_POST['Nom'], $_POST['Prenom'], $_POST['email']);
 ?>
