@@ -10,14 +10,14 @@ class Router
     public function __construct()
     {
         $this->indexCtrl = new IndexController();
-
     }
 
     public function routing()
     {
 			if(isset($_GET['action']))
 			{
-                if ($_GET['action'] === 'homepage') {
+                if ($_GET['action'] === 'homepage') 
+				{
                     $this->indexCtrl->homepage();
                 }
                 elseif ($_GET['action'] === 'registration')

@@ -21,6 +21,17 @@ class IndexController
 	public function registration()
 	{
 		$vue = new Vue("registrationView");
+		if( isset($_POST['Nom']) & isset($_POST['Prenom']) & isset($_POST['Email']) & isset($_POST['CodeClient']))
+		{
+			$user = $this->customer->Registration();
+			if($user == true)
+			{
+				$_SESSION['flash']['success'] = 'Vous êtes maintenant inscrit veuillez vous connecté. ';
+			}else{
+				$_SESSION['flash']['danger'] = 'Code client ou mot de passe incorrect ! ';
+			}
+			
+		}
 		$vue->generer(array());
 	}
 
