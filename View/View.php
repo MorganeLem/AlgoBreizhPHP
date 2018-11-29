@@ -29,11 +29,11 @@ class Vue {
                 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">
                     Bonjour <?= $_SESSION['user']->firstname ?> <span class="caret"></span></button>
 
-                <ul class="dropdown-menu dropdown-menu-right">
+                <ul class="dropdown-menu dropdown-menu-right" >
 
-                    <li><a href="#"><span class="glyphicon glyphicon-file"></span> Mes Commandes</a></li>
+                    <li><a href="index.php?action=suivi&suivi=Commande"><span class="glyphicon glyphicon-file"></span> Mes Commandes</a></li>
 
-                    <li><a href="#"><span class="glyphicon glyphicon-file"></span> Mes Factures</a></li>
+                    <li><a href="index.php?action=suivi&suivi=Facture"><span class="glyphicon glyphicon-file"></span> Mes Factures</a></li>
 
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mon Compte</a></li>
 

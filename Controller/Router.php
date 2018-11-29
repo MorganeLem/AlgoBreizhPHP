@@ -28,9 +28,14 @@ class Router
                 {
                     $this->indexCtrl->connection();
                 }
-                elseif ($_GET['action'] === 'logout'){
+                elseif ($_GET['action'] === 'logout')
+				{
                     $this->indexCtrl->logout();
                 }
+				elseif($_GET['action'] === 'suivi')
+				{
+					$this->indexCtrl->Suivi();
+				}
 
 			}else
 			{

@@ -2,6 +2,7 @@
 require_once 'View/View.php';
 require_once 'Model/ConnectionManager.php';
 require_once 'Model/RegistrationManager.php';
+require_once 'Model/SuiviManager.php';
 
 class IndexController
 {
@@ -12,6 +13,7 @@ class IndexController
     {
         $this->customer     = new ConnectionManager();
         $this->registration = new RegistrationManager();
+		$this->suivi		= new SuiviManager();
 
     }
 
@@ -61,6 +63,27 @@ class IndexController
         }
 	}
 
+	public function Suivi()
+	{
+		if(session_status()== PHP_SESSION_NONE){
+            session_start();
+        }
+		
+		$vue = new Vue("SuiviView");
+		if(!empty($_GET['suivi']) & empty($_GET['id']))
+		{
+			$result = $this->suivi->Suivi($_GET['suivi'],$_SESSION['user']->id);
+			$legende = "<legend>Bienvenue dans votre suivi des ".$_GET['suivi']."s</legend>";
+			$vue->generer(array('result' => $result , 'legende' => $legende));
+		}
+		if(!empty($_GET['id']))
+		{
+			$result = $this->suivi->SuiviDetails($_GET['suivi'], $_GET['id']);
+			$legende = "<legend>Bienvenue dans votre suivi de la ".$_GET['suivi']." n° ".$_GET['id']."</legend>";
+			$vue->generer(array('result' => $result , 'legende' => $legende));
+		}
+	}
+	
 	public function connection()
     {
         if(session_status()== PHP_SESSION_NONE){

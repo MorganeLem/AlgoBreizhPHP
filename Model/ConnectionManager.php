@@ -11,6 +11,7 @@ class ConnectionManager extends Manager{
                 WHERE email = ? or customer_code = ?';
         $request = $this->queryExecute($sql, array($_POST['login'], $_POST['login']));
         $user = $request->fetchObject();
+		
         return $user;
     }
 }

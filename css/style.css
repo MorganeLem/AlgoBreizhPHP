@@ -36,3 +36,10 @@ legend, #div-btn-connection a{
     padding-right: 10px;
     font-weight: 800;
 }
+
+table{
+    border-collapse: collapse;
+}
+td{
+	border : 1px solid black;
+}
