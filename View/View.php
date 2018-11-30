@@ -24,6 +24,11 @@ class Vue {
         }
         if(isset($_SESSION['user'])) {
             ob_start(); ?>
+
+            <div class="btn-group">
+                <a href="#" class="btn btn-default">Passer une commande</a>
+            </div>
+
             <div class="btn-group">
 
                 <button class="btn btn-default dropdown-toggle" data-toggle="dropdown">

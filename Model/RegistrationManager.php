@@ -2,7 +2,7 @@
 
 class RegistrationManager extends Manager
 {
-    public function addCustomer()
+    public function addCustomer($pwd)
     {
         $sql = 'SELECT customer_code 
                 FROM customers
@@ -12,9 +12,9 @@ class RegistrationManager extends Manager
         if(!empty($codeCustomExist->fetch()))
         {
             $sql = $sql = 'UPDATE customers 
-                SET email = ?, firstname = ?, lastname = ? 
+                SET email = ?, firstname = ?, lastname = ?, password = ?
                 WHERE customer_code = ?';
-            $this->queryExecute($sql , array($_POST['Email'], $_POST['Prenom'], $_POST['Nom'], $_POST['CodeClient']));
+            $this->queryExecute($sql , array($_POST['Email'], $_POST['Prenom'], $_POST['Nom'], $pwd, $_POST['CodeClient']));
             return $message = true;
         }
         else

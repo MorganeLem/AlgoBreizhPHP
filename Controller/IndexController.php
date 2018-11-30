@@ -49,10 +49,18 @@ class IndexController
 
             }
             else {
-                $isValid = $this->registration->addCustomer();
-                if ($isValid) {
+                $pwd = rand(10000, 99999);
+
+                if ($isValid = $this->registration->addCustomer($pwd)) {
+
+                    require_once 'View/mailRegistration.php';
+
                     $_SESSION['flash']['success'] = 'Un email contenant votre mot de passe vous a été envoyé.';
+
                     $this->homepage();
+
+
+
                 } else {
                     $_SESSION['flash']['danger'] = 'Code client erroné.';
                     $vue->generer(array());

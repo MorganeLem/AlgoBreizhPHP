@@ -1,15 +1,20 @@
 body{
-    background-color: #e6ffd2;
+    background-image: url("algue3.jpg");
+    /*background-color: #e6ffd2*/
+    color: #e6ffd2;
+    background-size: cover;
 }
 header{
     background-color: #1e320a;
+
     padding: 20px;
     margin-bottom: 30px;
     line-height: 50px;
 }
 
-header, header a{
+header, header a, legend{
     color: #e6ffd2;
+    font-weight: 700;
 }
 
 #logo{
@@ -20,15 +25,11 @@ header, header a{
 
 .jumbotron{
     background-color: #326419;
-    color: #e6ffd2;
+    opacity: 0.7;
 }
 
 #div-btn-connection{
     margin-top: 40px;
-}
-
-legend, #div-btn-connection a{
-    color: #1e320a;
 }
 
 #flashConnection{
