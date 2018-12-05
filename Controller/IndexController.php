@@ -165,7 +165,7 @@ class IndexController
                 $this->order();
             }else{
                 $shoppingCart->add($_GET['add']);
-                $_SESSION['flash']['success'] = "Le produit a bien été ajouté au panier.<br /><a class='return' href='index.php?action=order'><span class='glyphicon glyphicon-chevron-right'> </span></glyphicon>Continuer mes achats</a>";
+                $_SESSION['flash']['success'] = "Le produit a bien été ajouté au panier.<br /><a class='link-alert' href='index.php?action=order'><span class='glyphicon glyphicon-chevron-right'> </span></glyphicon> Continuer mes achats</a>";
                 $products = $this->order->getProductsByIds();
                 $vue->generer(array('products' => $products, 'totalOrderPrice' => $totalOrderPrice));
             }
@@ -187,7 +187,7 @@ class IndexController
             foreach ($products as $product){
                 $this->order->saveDetailsOrder($_SESSION['user']->id, $product->id, $_SESSION['shoppingCart'][$product->id], $product->price * $_SESSION['shoppingCart'][$product->id]);
             }
-            $_SESSION['flash']['success'] = "Votre commande est enregistrée et va être traité dans les plus brefs délais";
+            $_SESSION['flash']['success'] = "Votre commande est enregistrée et va être traité dans les plus brefs délais<br /><a class='link-alert' href='index.php?action=suivi&suivi=Commande'><span class='glyphicon glyphicon-chevron-right'> </span> Voir mes commandes</a>";
             $_SESSION['shoppingCart'] = array();
             $products=false;
             $vue->generer(array('products' => $products));

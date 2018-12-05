@@ -22,7 +22,7 @@
                         <td><?= $product->family ?></td>
                         <td><?= number_format($product->price, 2, ',', ' '); ?>€</td>
                         <td class="td-qty">
-                            <form method="post" action=""><input class="input-qty"
+                            <form method="post" action="index.php?action=shoppingCart"><input class="input-qty"
                                                                  name="shoppingCart[qty][<?= $product->id; ?>]"
                                                                  type="text"
                                                                  value="<?= $_SESSION['shoppingCart'][$product->id] ?>">
