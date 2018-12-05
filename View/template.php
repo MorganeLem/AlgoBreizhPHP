@@ -32,9 +32,9 @@ if(session_status()== PHP_SESSION_NONE){
         <div class="container" id="contenu">
             <?= $contenu ?>
         </div>
-        <footer class="text-center">
-            Projet AlgoBreizh 2019
 
+        <footer>
+            <p class="text-center">Projet AlgoBreizh 2019</p>
         </footer>
 
     </div>

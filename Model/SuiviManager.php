@@ -11,6 +11,7 @@ class SuiviManager extends Manager
 						<tr>
 							<th>Reference</th>
 							<th>Traitée</th>
+							<th></th>
 						</tr>";
 		$drapeau = 1;
 		if($donnees = $request->fetch())
@@ -19,9 +20,9 @@ class SuiviManager extends Manager
 			{
 				 $result = $result."
 						 <tr>
-							 <th>".$donnees['id']."</a></th>
-							 <th>".$donnees['traitement']."</th>
-							 <th> <a href='index.php?action=suivi&suivi=".$InfoSuivi."&id=".$donnees['id']."' ><button class='btn btn-s btn-warning pull-right'> Voir détails </button> </a> </th>
+							 <td>".$donnees['id']."</a></td>
+							 <td>".$donnees['traitement']."</td>
+							 <td> <a href='index.php?action=suivi&suivi=".$InfoSuivi."&id=".$donnees['id']."' ><button class='btn btn-s btn-warning pull-right'> Voir détails </button> </a> </td>
 						 </tr>";
 						$drapeau = $drapeau +1;
 			}

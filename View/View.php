@@ -26,7 +26,8 @@ class Vue {
             ob_start(); ?>
 
             <div class="btn-group">
-                <a href="#" class="btn btn-default">Passer une commande</a>
+                <a href="index.php?action=order" class="btn btn-default">Passer une commande</a>
+                <a href="index.php?action=shoppingCart" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart"></span></a>
             </div>
 
             <div class="btn-group">

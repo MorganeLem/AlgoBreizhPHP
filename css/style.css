@@ -2,19 +2,23 @@ body{
     background-image: url("algue3.jpg");
     /*background-color: #e6ffd2*/
     color: #e6ffd2;
+    background-attachment: fixed;
     background-size: cover;
 }
+
 header{
     background-color: #1e320a;
-
     padding: 20px;
     margin-bottom: 30px;
     line-height: 50px;
 }
 
-header, header a, legend{
+header, header a, legend, .listProducts a{
     color: #e6ffd2;
     font-weight: 700;
+}
+#contenu{
+    min-height: 600px;
 }
 
 #logo{
@@ -38,9 +42,75 @@ header, header a, legend{
     font-weight: 800;
 }
 
-table{
-    border-collapse: collapse;
+.table{
+    border-bottom: 1px solid #ddd;
 }
-td{
-	border : 1px solid black;
+
+#formOrder > fieldset > div > button{
+    margin-top: 20px;
+}
+
+.listProducts{
+    display: flex;
+    justify-content: space-around;
+    flex-wrap: wrap;
+}
+.listProducts > div{
+    width: 300px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.container .product{
+    padding: 30px 10px;
+}
+
+.listProducts > div > img{
+    width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+.listProducts > div > h2{
+    font-size: 16px;
+    margin-top: 0;
+    font-weight: 700;
+}
+
+.listProducts-title{
+    margin-bottom: 40px;
+}
+
+.container .shopping-cart{
+    padding: 30px!important;
+}
+
+.container .total{
+    padding: 10px 5px;
+}
+.total h2, .total p{
+    font-size: 16px;
+    padding: 0!important;
+}
+
+.total div p span, .total h2{
+    text-decoration: underline;
+}
+
+.table th, .table td {
+    vertical-align: middle!important;
+    padding: 8px 10px!important;
+}
+.input-qty{
+    background-color: #1e320a;
+    width: 50px;
+    height: 34px;
+    margin-right: 5px;
+    text-align: center;
+}
+
+.return{
+    color: #3c763d;;
 }
