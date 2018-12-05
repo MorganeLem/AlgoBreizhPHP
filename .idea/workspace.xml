@@ -133,7 +133,7 @@
         <entry file="file://$PROJECT_DIR$/Model/ConnectionManager.php">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="238">
-              <caret line="14" column="21" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="14" selection-end-column="21" />
+              <caret line="14" column="21" selection-start-line="11" selection-start-column="8" selection-end-line="14" selection-end-column="21" />
             </state>
           </provider>
         </entry>
@@ -159,8 +159,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/Controller/IndexController.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="456">
-              <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+            <state relative-caret-position="592">
+              <caret line="131" selection-start-line="131" selection-end-line="131" />
             </state>
           </provider>
         </entry>
@@ -400,7 +400,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="53886000" />
+    <option name="totallyTimeSpent" value="53942000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1616" height="876" extended-state="6" />
@@ -565,15 +565,15 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/Controller/IndexController.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="456">
-          <caret line="123" lean-forward="true" selection-start-line="123" selection-end-line="123" />
+        <state relative-caret-position="592">
+          <caret line="131" selection-start-line="131" selection-end-line="131" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/Model/ConnectionManager.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="238">
-          <caret line="14" column="21" lean-forward="true" selection-start-line="11" selection-start-column="8" selection-end-line="14" selection-end-column="21" />
+          <caret line="14" column="21" selection-start-line="11" selection-start-column="8" selection-end-line="14" selection-end-column="21" />
         </state>
       </provider>
     </entry>

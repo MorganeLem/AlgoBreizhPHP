@@ -11,7 +11,7 @@ $this->menuLinks = '<nav><a href="index.php?action=connection">Se connecter</a><
 	
 	<form action="" method="post">
 		<fieldset>
-			<legend> pour vous inscrire veuillez rentrer les champs suivant :<br> </legend>
+			<legend> Pour vous inscrire veuillez renseigner les champs suivant :<br> </legend>
 			<div class="form-group"><label> Code Client: </label> <input class="form-control" type="text" name="CodeClient" required></div>
 			<div class="form-group"><label> Nom        : </label> <input class="form-control" type="text" name="Nom"        required></div>
 			<div class="form-group"><label> Prenom     : </label> <input class="form-control" type="text" name="Prenom"     required></div>

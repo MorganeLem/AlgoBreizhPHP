@@ -9,6 +9,9 @@ class Router
 
     public function __construct()
     {
+        if(session_status()== PHP_SESSION_NONE){
+            session_start();
+        }
         $this->indexCtrl = new IndexController();
     }
 
@@ -36,6 +39,13 @@ class Router
 				{
 					$this->indexCtrl->Suivi();
 				}
+				elseif ($_GET['action'] === 'order'){
+                    $this->indexCtrl->order();
+                }
+                elseif ($_GET['action'] === 'shoppingCart'){
+                    $this->indexCtrl->shoppingCart();
+                }
+
 
 			}else
 			{
