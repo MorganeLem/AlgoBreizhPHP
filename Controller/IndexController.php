@@ -106,24 +106,29 @@ class IndexController
             if(!empty($_POST['login']) && !empty($_POST['pswd']))
             {
 
-                $user = $this->customer->getCustomer();
-                if($user->password === $_POST['pswd'])
+                if($user = $this->customer->getCustomer())
                 {
-                    $_SESSION['user'] = $user;
-                    $_SESSION['flash']['success'] = 'Vous êtes maintenant connecté. ';
-                    $this->homepage();
-                }else
-                    {
+                    if ($user->password === $_POST['pswd'] && ($user->email === $_POST['login'] || $user->customer_code === $_POST['login'])) {
+                        $_SESSION['user'] = $user;
+                        $_SESSION['flash']['success'] = 'Vous êtes maintenant connecté. ';
+                        $this->homepage();
+                    } else {
+
                         $_SESSION['flash']['danger'] = 'Identifiant ou mot de passe incorrect ! ';
                         $vue->generer(array());
-
+                    }
+                }else{
+                    $_SESSION['flash']['danger'] = 'Identifiant ou mot de passe incorrect ! ';
+                    $vue->generer(array());
                 }
 
             }else
                 {
-                $_SESSION["flash"]["danger"] = "Vous devez renseigner tous les champs ! ";
+                    $_SESSION["flash"]["danger"] = "Vous devez renseigner tous les champs ! ";
                     $vue->generer(array());
-            }
+                }
+
+
         }else{
 
             $vue->generer(array());
