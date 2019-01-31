@@ -42,7 +42,13 @@ class Vue {
                     <li><a href="index.php?action=suivi&suivi=Facture"><span class="glyphicon glyphicon-file"></span> Mes Factures</a></li>
 
                     <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mon Compte</a></li>
-
+					
+					<?php
+					if($_SESSION['user']->Statut === "Téléprospecteur")
+					{
+						echo "<li><a href='index.php?action=Prospect'><span class='glyphicon glyphicon-user'></span> Toute Commandes</a></li>" ;
+					}
+					?>
                     <li class="divider"></li>
 
                     <li><a href="index.php?action=logout"><span class="glyphicon glyphicon-remove"></span> Déconnection</a></li>
