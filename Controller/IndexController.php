@@ -111,7 +111,12 @@ class IndexController
                 {
                     $_SESSION['user'] = $user;
                     $_SESSION['flash']['success'] = 'Vous êtes maintenant connecté. ';
-                    $this->homepage();
+					if($user->Statut == "Téléprospecteur")
+					{
+						$this->Prospect();
+					}else{
+						$this->homepage();
+					}
                 }else
                     {
                         $_SESSION['flash']['danger'] = 'Identifiant ou mot de passe incorrect ! ';
@@ -199,10 +204,29 @@ class IndexController
         }
     }
 
+	public function Prospect()
+	{
+		$legende = "<legend>Vous pouvez voir toute les commandes non traités </legend>";
+		$vue = new Vue("SuiviView");
+		if(empty($_GET['id']))
+		{
+			$result = $this->suivi->SuiviProspect();
+			$vue->generer(array('result' => $result , 'legende' => $legende));
+		}else
+		{
+			$result = $this->suivi->SuiviDetails($_GET['suivi'],$_GET['id']);
+			$vue->generer(array('result' => $result , 'legende' => $legende));
+		}
+	}
     public function logout()
     {
         session_destroy();
         $_SESSION['flash']['danger'] = 'Vous êtes déconnecté.';
         $this->homepage();
     }
+	public function Validation()
+	{
+		$this->order->Valid();
+		$this->Prospect();
+	}
 }

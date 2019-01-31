@@ -39,14 +39,22 @@ class Router
 				{
 					$this->indexCtrl->Suivi();
 				}
-				elseif ($_GET['action'] === 'order'){
+				elseif ($_GET['action'] === 'order')
+				{
                     $this->indexCtrl->order();
                 }
-                elseif ($_GET['action'] === 'shoppingCart'){
-                    $this->indexCtrl->shoppingCart();
+                elseif ($_GET['action'] === 'shoppingCart')
+				{
+                    $this->indexCtrl->shoppingCart();	
                 }
-
-
+				elseif($_GET['action'] === 'Prospect')
+				{
+					$this->indexCtrl->Prospect();
+				}
+				elseif($_GET['action'] === 'validation')
+				{
+					$this->indexCtrl->Validation();
+				}
 			}else
 			{
 				$this->indexCtrl->homepage();

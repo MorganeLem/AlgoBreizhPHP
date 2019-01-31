@@ -54,4 +54,10 @@ class OrderManager extends Manager
         return $detailsOrder;
 
     }
+	public function valid()
+	{
+		$sql= "UPDATE salestable SET etats='Facture' where id=?";
+		$this->queryExecute($sql, array($_GET['id']));
+		unset($_GET['id']);
+	}
 }

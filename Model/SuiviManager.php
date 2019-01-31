@@ -77,4 +77,40 @@ class SuiviManager extends Manager
 		return $result;
 		
 	}
+	public function SuiviProspect()
+	{
+		$Suivi = "Commande";
+		$sql = ("SELECT * FROM salestable WHERE etats = ? && traitement = 'Non' ORDER BY date_purchase desc");
+		$request = $this->queryExecute($sql, array($Suivi));
+		$tableau = $this->queryExecute($sql, array($Suivi));
+		$result = "<table class='table'>
+						<tr>
+							<th>Reference</th>
+							<th>Traitée</th>
+						</tr>";
+		$drapeau = 1;
+		if($donnees = $request->fetch())
+		{
+			while($drapeau <= 100 && $donnees = $tableau->fetch())
+			{
+				 $result = $result."
+						
+						 <tr>	
+							 <th>".$donnees['id']."</a></th>
+							 <th><form action='index.php?action=validation&id=".$donnees['id']."' id=".$drapeau." method='post'>
+									<input type='checkbox' onChange='document.getElementById(".$drapeau.").submit()'></input>
+								</form>
+							 <th> <a 'index.php?action=suivi&suivi=".$Suivi."&id=".$donnees['id']."' ><button class='btn btn-s btn-warning pull-right'> Voir détails </button> </a> </th>
+						 </tr>";
+						$drapeau = $drapeau +1;
+			}
+			
+			$result = $result."</table>";			
+			return $result;
+		}else
+		{
+			$result = 'Pas de '.$Suivi.' !';
+		}
+		return $result;
+	}
 }
