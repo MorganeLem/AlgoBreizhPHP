@@ -84,16 +84,18 @@ class IndexController
         if(!empty($_POST)){
             if(!empty($_POST['login']) && !empty($_POST['pswd']))
             {
-                $user = $this->customer->getCustomer();
-                if($user->password === $_POST['pswd'])
-                {
-                    $_SESSION['user'] = $user;
-                    $_SESSION['flash']['success'] = 'Vous êtes maintenant connecté. ';
-                    if($user->Statut == "Téléprospecteur")
-                    {
-                        $this->Prospect();
+                if($user = $this->customer->getCustomer()){
+                    if($user->password === $_POST['pswd']) {
+                        $_SESSION['user'] = $user;
+                        $_SESSION['flash']['success'] = 'Vous êtes maintenant connecté. ';
+                        if ($user->Statut == "Téléprospecteur") {
+                            $this->Prospect();
+                        } else {
+                            $this->homepage();
+                        }
                     }else{
-                        $this->homepage();
+                        $_SESSION['flash']['danger'] = 'Identifiant ou mot de passe incorrect ! ';
+                        $vue->generer(array());
                     }
                 }else
                 {
