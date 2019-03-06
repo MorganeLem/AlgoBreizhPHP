@@ -17,8 +17,6 @@ $this->menuLinks = '';
 
                         <div class="form-group" id="div-btn-connection">
 
-                            <button href="index.php?action=remember" class="btn btn-xs btn-warning"><span class="glyphicon glyphicon-chevron-right"> </span> Mot de passe oublié</button>
-
                             <button class="btn btn-lg btn-warning pull-right" type="submit"><span class="glyphicon glyphicon-chevron-right"> </span> Se connecter</button>
 
                         </div>
