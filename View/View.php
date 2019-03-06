@@ -23,12 +23,16 @@ class Vue {
             session_start();
         }
         if(isset($_SESSION['user'])) {
-            ob_start(); ?>
+            ob_start();
+
+            if($_SESSION['user']->Statut !== "Téléprospecteur"){?>
 
             <div class="btn-group">
                 <a href="index.php?action=order" class="btn btn-default">Passer une commande</a>
                 <a href="index.php?action=shoppingCart" class="btn btn-default"><span class="glyphicon glyphicon-shopping-cart"></span></a>
             </div>
+
+            <?php } ?>
 
             <div class="btn-group">
 
@@ -37,14 +41,21 @@ class Vue {
 
                 <ul class="dropdown-menu dropdown-menu-right" >
 
-                    <li><a href="index.php?action=suivi&suivi=Commande"><span class="glyphicon glyphicon-file"></span> Mes Commandes</a></li>
+                    <?php
+					if($_SESSION['user']->Statut !== "Téléprospecteur") { ?>
 
-                    <li><a href="index.php?action=suivi&suivi=Facture"><span class="glyphicon glyphicon-file"></span> Mes Factures</a></li>
+                        <li><a href="index.php?action=suivi&suivi=Commande"><span
+                                        class="glyphicon glyphicon-file"></span> Mes Commandes</a></li>
 
-                    <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mon Compte</a></li>
-					
-					<?php
-					if($_SESSION['user']->Statut === "Téléprospecteur")
+                        <li><a href="index.php?action=suivi&suivi=Facture"><span
+                                        class="glyphicon glyphicon-file"></span> Mes Factures</a></li>
+
+                        <li><a href="#"><span class="glyphicon glyphicon-user"></span> Mon Compte</a></li>
+
+                        <?php
+                    }
+
+					else
 					{
 						echo "<li><a href='index.php?action=Prospect'><span class='glyphicon glyphicon-user'></span> Toute Commandes</a></li>" ;
 					}

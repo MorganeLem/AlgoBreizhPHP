@@ -177,6 +177,7 @@ class IndexController
     }
     public function Prospect()
     {
+
         $legende = "<legend>Vous pouvez voir toute les commandes non traités </legend>";
         $vue = new Vue("SuiviView");
         if(empty($_GET['id']))
