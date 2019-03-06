@@ -100,7 +100,7 @@ class SuiviManager extends Manager
 							 <th><form action='index.php?action=validation&id=".$donnees['id']."' id=".$drapeau." method='post'>
 									<input type='checkbox' onChange='document.getElementById(".$drapeau.").submit()'></input>
 								</form>
-							 <th> <a 'index.php?action=suivi&suivi=".$Suivi."&id=".$donnees['id']."' ><button class='btn btn-s btn-warning pull-right'> Voir détails </button> </a> </th>
+							 <th> <a href='index.php?action=suivi&suivi=Commande&id=".$donnees['id']."' ><button class='btn btn-s btn-warning pull-right'> Voir détails </button> </a> </th>
 						 </tr>";
 						$drapeau = $drapeau +1;
 			}
