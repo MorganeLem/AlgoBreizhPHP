@@ -107,7 +107,9 @@ class SuiviManager extends Manager
 						$drapeau = $drapeau +1;
 			}
 			
-			$result = $result."</table>";			
+			$result = $result."</table>";
+			$sqlUpdate = ('UPDATE salestable SET traitement = "Oui" WHERE etats = "Facture"');
+			$this->queryExecute($sqlUpdate);
 			return $result;
 		}else
 		{
