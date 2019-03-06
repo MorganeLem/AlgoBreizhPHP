@@ -114,3 +114,10 @@ header, header a, legend, .listProducts a{
 .link-alert{
     color: #3c763d;;
 }
+img{
+	width: 200px;
+    height: 200px;
+    margin-bottom: 10px;
+}
+
+	
