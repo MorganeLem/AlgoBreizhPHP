@@ -43,12 +43,13 @@ class SuiviManager extends Manager
 		$request = $this->queryExecute($sql, array($id));
 		$tableau = $this->queryExecute($sql, array($id));
 		$result = "<table class='table'>
-						 <tr>
-							 <th>Nom article</th>
-							 <th>Prix Unitaire</th>
-							 <th>Quantité</th>
-							 <th>Prix Ligne</th>
-						 </tr>";
+							 <tr>
+								 <th></th>
+								 <th>Nom article</th>
+								 <th>Prix Unitaire</th>
+								 <th>Quantité</th>
+								 <th>Prix Ligne</th>
+							 </tr>";
 		if($donnees = $request->fetch())
 		{
 			while($donnees = $tableau->fetch())
@@ -60,6 +61,7 @@ class SuiviManager extends Manager
 					$prixLigne = array($resultatligne['price'],$donnees['quantity']);
 					$result = $result."
 							<tr>
+								<th> <img src='images/plat".$resultatligne['id'].".jpg'> </th>
 								<th>".$resultatligne['name']."</th>
 								<th>".$resultatligne['price']."</th>
 								<th>".$donnees['quantity']."</th>
@@ -100,7 +102,7 @@ class SuiviManager extends Manager
 							 <th><form action='index.php?action=validation&id=".$donnees['id']."' id=".$drapeau." method='post'>
 									<input type='checkbox' onChange='document.getElementById(".$drapeau.").submit()'></input>
 								</form>
-							 <th> <a href='index.php?action=suivi&suivi=Commande&id=".$donnees['id']."' ><button class='btn btn-s btn-warning pull-right'> Voir détails </button> </a> </th>
+							 <th> <a href='index.php?action=suivi&suivi=Commande7&id=".$donnees['id']."' ><button class='btn btn-s btn-warning pull-right'> Voir détails </button> </a> </th>
 						 </tr>";
 						$drapeau = $drapeau +1;
 			}
