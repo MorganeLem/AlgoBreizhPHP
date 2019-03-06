@@ -81,6 +81,7 @@ class SuiviManager extends Manager
 	}
 	public function SuiviProspect()
 	{
+
 		$Suivi = "Commande";
 		$sql = ("SELECT * FROM salestable WHERE etats = ? && traitement = 'Non' ORDER BY date_purchase desc");
 		$request = $this->queryExecute($sql, array($Suivi));
@@ -106,13 +107,15 @@ class SuiviManager extends Manager
 						 </tr>";
 						$drapeau = $drapeau +1;
 			}
-			
+            $sqlUpdate = ('UPDATE salestable SET traitement = "Oui" WHERE etats = "Facture"');
+            $this->queryExecute($sqlUpdate);
 			$result = $result."</table>";
-			$sqlUpdate = ('UPDATE salestable SET traitement = "Oui" WHERE etats = "Facture"');
-			$this->queryExecute($sqlUpdate);
+
 			return $result;
 		}else
 		{
+            $sqlUpdate = ('UPDATE salestable SET traitement = "Oui" WHERE etats = "Facture"');
+            $this->queryExecute($sqlUpdate);
 			$result = 'Pas de '.$Suivi.' !';
 		}
 		return $result;
