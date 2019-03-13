@@ -50,11 +50,22 @@ class Router
 				elseif($_GET['action'] === 'Prospect')
 				{
 					$this->indexCtrl->Prospect();
+
 				}
 				elseif($_GET['action'] === 'validation')
 				{
 					$this->indexCtrl->Validation();
 				}
+				elseif ($_GET['action'] === "adminCustomers"){
+                    if(empty($_GET['modify'])) {
+                        $this->indexCtrl->administrationCustomers();
+                    }
+                    else{
+                        $this->indexCtrl->updateCustom();
+                    }
+                }
+
+
 			}else
 			{
 				$this->indexCtrl->homepage();

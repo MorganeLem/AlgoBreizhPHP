@@ -4,12 +4,14 @@ require_once 'Model/ConnectionManager.php';
 require_once 'Model/RegistrationManager.php';
 require_once 'Model/SuiviManager.php';
 require_once 'Model/OrderManager.php';
+require_once 'Model/AdminCustomersManager.php';
 class IndexController
 {
     private $customer;
     private $registration;
     private $suivi;
     private $order;
+    private $customAdmin;
     public function __construct()
     {
         if(session_status()== PHP_SESSION_NONE){
@@ -19,6 +21,7 @@ class IndexController
         $this->registration = new RegistrationManager();
         $this->suivi		= new SuiviManager();
         $this->order        = new OrderManager();
+        $this->customAdmin  = new AdminCustomersManager();
     }
     public function homepage()
     {
@@ -200,5 +203,42 @@ class IndexController
     {
         $this->order->Valid();
         $this->Prospect();
+    }
+
+    public function administrationCustomers(){
+
+        $vue = new Vue("administrationCustomersView");
+        if(empty($_GET['del'])&& empty($_GET['id'])) {
+            $result = $this->customAdmin->getCustomers();
+        }elseif ($_GET['del'] == 'yes' && $_GET['id']) {
+            $this->customAdmin->DelCustomer();
+            $_SESSION['flash']['success'] = "Client supprimé avec succès";
+            $result = $this->customAdmin->getCustomers();
+        }
+        else{
+            $result = $this->customAdmin->getCustomers();
+        }
+        $_SESSION['flash']['success'] = "Vous pouvez supprimer un client de la base ou modifier ses informations";
+        $vue->generer(array('result' => $result));
+
+
+    }
+
+    public function updateCustom(){
+
+        if(!empty($_POST)){
+
+            $this->customAdmin->updateCustomer();
+            $_SESSION['flash']['success'] = "Les informations ont été modifiée avec succès <a href= 'index.php?action=adminCustomers' >Revenir à la liste des clients </a>";
+            $this->customAdmin->getCustomer();
+            $vue = new Vue("formUpdateCustomView");
+            $customer = $this->customAdmin->getCustomer();
+            $vue->generer((array('customer'=>$customer)));
+
+        }else{
+            $vue = new Vue("formUpdateCustomView");
+            $customer = $this->customAdmin->getCustomer();
+            $vue->generer((array('customer'=>$customer)));
+        }
     }
 }
