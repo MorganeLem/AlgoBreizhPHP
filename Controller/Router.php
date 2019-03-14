@@ -55,6 +55,7 @@ class Router
 				{
 					$this->indexCtrl->Validation();
 				}
+				
 			}else
 			{
 				$this->indexCtrl->homepage();
